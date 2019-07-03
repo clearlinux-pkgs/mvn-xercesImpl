@@ -4,10 +4,12 @@
 #
 Name     : mvn-xercesImpl
 Version  : 2.9.1
-Release  : 2
+Release  : 3
 URL      : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 Source0  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
-Source1  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Source1  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
+Source2  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom
+Source3  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
@@ -32,8 +34,14 @@ data components for the mvn-xercesImpl package.
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
 cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
 
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0
+
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
-cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
 
 
 %files
@@ -41,5 +49,7 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
+/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
