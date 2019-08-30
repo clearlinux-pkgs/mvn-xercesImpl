@@ -4,7 +4,7 @@
 #
 Name     : mvn-xercesImpl
 Version  : 2.9.1
-Release  : 7
+Release  : 8
 URL      : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 Source0  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 Source1  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
