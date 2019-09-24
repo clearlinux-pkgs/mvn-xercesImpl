@@ -4,22 +4,25 @@
 #
 Name     : mvn-xercesImpl
 Version  : 2.9.1
-Release  : 8
+Release  : 9
 URL      : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 Source0  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 Source1  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
 Source2  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom
-Source3  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar
-Source4  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.pom
-Source5  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar
-Source6  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.pom
-Source7  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
-Source8  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
-Source9  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Source3  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.jar
+Source4  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.pom
+Source5  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar
+Source6  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.pom
+Source7  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar
+Source8  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.pom
+Source9  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+Source10  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+Source11  : https://repo1.maven.org/maven2/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
 Requires: mvn-xercesImpl-data = %{version}-%{release}
+Requires: mvn-xercesImpl-license = %{version}-%{release}
 
 %description
 No detailed description available
@@ -32,11 +35,23 @@ Group: Data
 data components for the mvn-xercesImpl package.
 
 
+%package license
+Summary: license components for the mvn-xercesImpl package.
+Group: Default
+
+%description license
+license components for the mvn-xercesImpl package.
+
+
 %prep
+%setup -q -n META-INF
 
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/mvn-xercesImpl
+cp LICENSE %{buildroot}/usr/share/package-licenses/mvn-xercesImpl/LICENSE
+cp NOTICE %{buildroot}/usr/share/package-licenses/mvn-xercesImpl/NOTICE
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
 cp %{SOURCE0} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 
@@ -46,26 +61,32 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0
 cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom
 
-mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2
-cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.12.0
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.12.0
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2
-cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.pom
+cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2
+cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1
-cp %{SOURCE5} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar
+cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1
-cp %{SOURCE6} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.pom
+cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
-cp %{SOURCE7} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
-cp %{SOURCE8} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+cp %{SOURCE10} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
 
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
-cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+cp %{SOURCE11} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
 
 
 %files
@@ -75,9 +96,16 @@ cp %{SOURCE9} %{buildroot}/usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1
 %defattr(-,root,root,-)
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.pom
+/usr/share/java/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.jar
+/usr/share/java/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.pom
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.jar
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.6.2/xercesImpl-2.6.2.pom
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.jar
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.8.1/xercesImpl-2.8.1.pom
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
 /usr/share/java/.m2/repository/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.pom
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/mvn-xercesImpl/LICENSE
+/usr/share/package-licenses/mvn-xercesImpl/NOTICE
